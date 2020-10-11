@@ -1,0 +1,13 @@
+<!-- /app/dashboard/* custom container -->
+<p-tabView [controlClose]="true"  (onChange)="handleChange($event)" (onClose)="handleClose($event)" [activeIndex]="index">
+    <p-tabPanel *ngIf="primaryModel==null" [header]="primaryLabel" >
+    <ng-template tabs-view></ng-template>
+           <ng-content></ng-content>
+    </p-tabPanel>
+    <p-tabPanel  *ngIf="primaryModel!=null" [header]="primaryModel.label"  >
+        <pc-tabs-view (openTabEventEmitter)="openTab($event)" [modelData] = "primaryModel"></pc-tabs-view>
+    </p-tabPanel>
+    <p-tabPanel  *ngFor="let tab of tabList"  [header]="tab.label"  [closable]="true">
+           <pc-tabs-view (openTabEventEmitter)="openTab($event)" [modelData] = "tab"></pc-tabs-view>
+    </p-tabPanel>
+</p-tabView>

@@ -13,4 +13,5 @@ export interface PCTabInterface {
 
 export interface PCTabsViewInterface{
     openTab(model:PCTabModelInterface);
+    close();
 }

@@ -11,9 +11,13 @@ export class PCTabsViewComponent implements OnInit,PCTabsViewInterface {
  @ViewChild(TabsViewContentDirective, {static: true}) tabViewContent: TabsViewContentDirective;
  @Input() modelData:PCTabModelInterface;
  @Output() openTabEventEmitter: EventEmitter<PCTabModelInterface> = new EventEmitter<PCTabModelInterface>();
+ @Output() closeEventEmitter: EventEmitter<void> =  new EventEmitter();
  index: number = 0;
  componentRef: any;
  constructor(private componentFactoryResolver: ComponentFactoryResolver) { }
+  close() {
+    this.closeEventEmitter.emit();
+  }
   ngOnInit() {
     //debugger;
     //this.tabViewContent;

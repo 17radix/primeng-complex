@@ -7,7 +7,7 @@
     <p-tabPanel  *ngIf="primaryModel!=null" [header]="primaryModel.label"  >
         <pc-tabs-view (openTabEventEmitter)="openTab($event)" [modelData] = "primaryModel"></pc-tabs-view>
     </p-tabPanel>
-    <p-tabPanel  *ngFor="let tab of tabList"  [header]="tab.label"  [closable]="true">
-           <pc-tabs-view (openTabEventEmitter)="openTab($event)" [modelData] = "tab"></pc-tabs-view>
+    <p-tabPanel  *ngFor="let tab of tabList;let i = index"  [header]="tab.label"  [closable]="true">
+           <pc-tabs-view (openTabEventEmitter)="openTab($event)" (closeEventEmitter)="closeTab(i+1)" [modelData] = "tab"></pc-tabs-view>
     </p-tabPanel>
 </p-tabView>

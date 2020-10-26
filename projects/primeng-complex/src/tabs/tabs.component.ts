@@ -8,16 +8,19 @@ export class PCTabsComponent implements OnInit  {
   handleClose(e) {
     //debugger;
     //setTimeout(()=>{this.index=tabindex},0)
-   if(e.index = this.index){
-     this.index = this.index -1
-   }
-   console.log(this.tabList)
-   console.log(e.index-1)
-   this.tabList.splice(e.index-1,1);
-   console.log(this.tabList);
+    this.closeTab(e.index);
     //if (condition)
     //    e.close();
     
+ }
+ closeTab(index){
+  if(index == this.index){
+    this.index = this.index -1
+  }
+  console.log(this.tabList)
+  console.log(index-1)
+  this.tabList.splice(index-1,1);
+  console.log(this.tabList);
  }
  handleChange(e) {
   this.index = e.index;
